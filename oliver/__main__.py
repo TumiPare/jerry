@@ -10,6 +10,6 @@ if __name__ == "__main__":
     if m3u8_link is None:
         m3u8_link = input("Enter m3u8 link: ")
 
-    f = Downloader(m3u8_link, "1080")
+    f = Downloader(m3u8_link)
     f.save()
             
