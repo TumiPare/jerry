@@ -3,7 +3,7 @@
 
 **make sure you have [ffmpeg](https://ffmpeg.org/download.html) installed**
 
-## **install using pip**
+## **Install using pip**
 ```bash
 pip install oliver_dl
 ```
