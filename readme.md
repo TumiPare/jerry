@@ -21,5 +21,5 @@ poetry shell
 
 **run as cli**
 ```bash
-python oliver
+python oliver_dl
 ```
