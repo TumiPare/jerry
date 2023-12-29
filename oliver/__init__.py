@@ -7,8 +7,8 @@ import progressbar
 import subprocess
 import sys
 
-class Oliver:
-    def __init__(self, url):
+class Downloader:
+    def __init__(self, url, quality=None):
         
         quality_playlist = requests.get(url)
 
@@ -19,10 +19,17 @@ class Oliver:
 
         video_qualities = [match[0] for match in matches]
         video_links = [match[1] for match in matches]
-        for i, quality in enumerate(video_qualities):
-            print(f"[{i}] {quality}")
         
-        quality_choice = int(input("Select quality: ")) 
+        
+        quality_choice = 0
+        if quality is None:
+            for i, quality in enumerate(video_qualities):
+                print(f"[{i}] {quality}")
+            quality_choice = int(input("Select quality: "))
+        else:
+            quality_choice = [i for i, q in enumerate(video_qualities) if quality in q][0]
+
+        print (f"Selected {video_qualities[quality_choice]}")
         # video_link = self.folder + video_links[quality_choice]
         self.folder = url[:url.rfind('/') + 1]
         self.url = video_links[quality_choice] if video_links[quality_choice].startswith("http") else self.folder + video_links[quality_choice]
@@ -76,19 +83,7 @@ class Oliver:
         print(f"Total time: {elapsed_time} seconds")
         return filename
         
-if __name__ == "__main__":
-    m3u8_link = None
-    # for arg in sys.argv:
-    #     if arg.startswith("-l="):
-    #         m3u8_link = arg.split("=")[1]
-    #         break
 
-    if m3u8_link is None:
-        m3u8_link = input("Enter m3u8 link: ")
-
-    f = Oliver(m3u8_link)
-    f.save()
-            
         
 
     
