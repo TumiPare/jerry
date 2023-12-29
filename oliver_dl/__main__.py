@@ -1,5 +1,5 @@
 #  cli
-from oliver import Downloader
+from oliver_dl import Downloader
 if __name__ == "__main__":
     m3u8_link = None
     # for arg in sys.argv:
