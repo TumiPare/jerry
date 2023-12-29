@@ -3,23 +3,37 @@
 
 **make sure you have [ffmpeg](https://ffmpeg.org/download.html) installed**
 
+## **install using pip**
+```bash
+pip install oliver_dl
+```
+**example usage**
+```python
+from oliver_dl import Downloader
 
+f = Downloader(m3u8_link)
+f.save()
+```
+## **Run from source**
+
+```bash
+git clone https://github.com/TumiPare/oliver
+```
 **Install poetry**
 ```bash
 pip install poetry
 ```
-
 **Install dependancies**
 ```bash
 poetry install
 ```
-
 **Create and run virtual environment**
 ```bash
 poetry shell
 ```
-
 **run as cli**
 ```bash
 python oliver_dl
 ```
+
+
